@@ -1,0 +1,28 @@
+{
+  "name": "campuscoin",
+  "version": "1.0.0",
+  "description": "Campus Coin - NextGen BudgetBee - AI-Powered Student Finance Tracker",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev:server": "node server/index.js",
+    "dev:client": "cd client && npm run dev",
+    "seed": "node server/seed.js",
+    "build": "cd client && npm run build"
+  },
+  "keywords": ["campus", "coin", "student", "finance", "budget", "ai", "nodejs", "react"],
+  "author": "Campus Coin Development Team",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "jspdf": "^3.0.1",
+    "multer": "^2.0.1",
+    "sqlite3": "^5.1.7"
+  }
+}
