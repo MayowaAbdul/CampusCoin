@@ -8,10 +8,7 @@ import {
   Target,
   Sparkles,
   Shield,
-  Sun,
-  Moon,
   Type,
-  Map,
   LogOut,
   User as UserIcon
 } from 'lucide-react';
@@ -20,11 +17,10 @@ import { useAuth } from '../context/AuthContext';
 interface NavbarProps {
   currentTab: string;
   setCurrentTab: (tab: string) => void;
-  onOpenSitemap: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab, onOpenSitemap }) => {
-  const { user, logout, isDarkMode, toggleDarkMode, fontSize, setFontSize } = useAuth();
+export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => {
+  const { user, logout, fontSize, setFontSize } = useAuth();
 
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -85,15 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab, onOpe
 
           {/* Right Actions: Sitemap, Accessibility controls, User profile & Logout */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Sitemap Button */}
-            <button
-              onClick={onOpenSitemap}
-              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition flex items-center gap-1 text-xs font-medium border border-slate-200 dark:border-slate-700"
-              title="View Application Sitemap"
-            >
-              <Map className="w-4 h-4 text-indigo-500" />
-              <span className="hidden sm:inline">Sitemap</span>
-            </button>
+
 
             {/* Font Size Accessibility Controls */}
             <div className="hidden sm:flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl p-1 border border-slate-200 dark:border-slate-700 text-xs">
@@ -118,14 +106,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab, onOpe
               </button>
             </div>
 
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition border border-slate-200 dark:border-slate-700"
-              title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-            >
-              {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
-            </button>
 
             {/* User Dropdown / Logout */}
             {user ? (
